@@ -1,6 +1,5 @@
 
 # Report functions
-# readcsv = csv.reader(csvfile, delimiter=' ')
 
 
 def import_file(filename):
@@ -60,17 +59,19 @@ def sort_abc(filename):
         titles.append(game[0])
     return sorted(titles)
 
+
 def get_genres(filename):
     datas = import_file(filename)
     genres = []
     for game in datas:
         genres.append(game[3])
-    return sorted(set(genres),key = str.lower)
+    return sorted(set(genres), key=str.lower)
+
 
 def when_was_top_sold_fps(filename):
     datas = import_file(filename)
     soldcounter = 0
-    release_year= 0
+    release_year = 0
     for game in datas:
         if game[3] == "First-person shooter":
             if float(game[1]) > soldcounter:
